@@ -1,0 +1,529 @@
+/* Styles for AlPinegin landing page */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.hero {
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 70vh;
+    overflow: hidden; /* Prevent scrollbars during animations */
+}
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.9); opacity: 0;}
+    to { transform: scale(1); opacity: 1;}
+}
+
+@keyframes subtlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.hero-content {
+    max-width: 600px;
+    animation: fadeIn 1s ease-out;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    animation: fadeInSlideUp 0.8s ease-out 0.2s backwards;
+}
+
+.tagline {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    animation: fadeInSlideUp 0.8s ease-out 0.5s backwards;
+}
+
+.services {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2em;
+}
+
+.services li {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0; /* Start hidden for staggered animation */
+    animation: fadeInSlideUp 0.5s ease-out forwards;
+}
+
+/* Staggered animation for service list items */
+.services li:nth-child(1) { animation-delay: 0.8s; }
+.services li:nth-child(2) { animation-delay: 1.0s; }
+.services li:nth-child(3) { animation-delay: 1.2s; }
+.services li:nth-child(4) { animation-delay: 1.4s; }
+
+
+.cta-button {
+    background-color: #ff6b6b;
+    animation: scaleUp 0.7s ease-out 1.7s backwards;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ff4757;
+}
+
+.hero-animation-placeholder {
+    width: 300px; /* Adjust as needed */
+    height: 300px; /* Adjust as needed */
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: #eee;
+    animation: subtlePulse 3s infinite ease-in-out 2s;
+}
+
+/* Responsive Design */
+
+/* Tablets (e.g., iPads) */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        padding: 40px 20px;
+        min-height: auto; /* Adjust height for tablet */
+    }
+
+    .hero-content {
+        max-width: 100%; /* Allow full width */
+        text-align: center;
+        margin-bottom: 20px; /* Space between content and animation placeholder */
+    }
+
+    .hero h1 {
+        font-size: 2.5em; /* Slightly smaller for tablets */
+    }
+
+    .tagline {
+        font-size: 1.3em; /* Slightly smaller */
+    }
+
+    .services li {
+        font-size: 1em;
+        padding: 8px;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+
+    .hero-animation-placeholder {
+        width: 250px; /* Smaller placeholder */
+        height: 250px;
+        margin-top: 20px; /* Ensure space if stacked */
+    }
+
+    .features h2, .about-us h2, .contact-us h2 {
+        font-size: 2.2em;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust grid for tablets */
+    }
+
+    .contact-container {
+        flex-direction: column; /* Stack form and info on tablets */
+        align-items: center;
+    }
+
+    .contact-form-container, .contact-info-container {
+        width: 90%; /* Make them take more width */
+        max-width: 500px; /* But not too wide */
+        margin-bottom: 20px;
+    }
+
+     .contact-info-container {
+        margin-bottom: 0; /* No bottom margin for the last element */
+    }
+}
+
+/* Mobile devices (e.g., iPhones, Android phones) */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; /* Adjust base font size for mobile */
+    }
+
+    .hero {
+        padding: 30px 15px;
+    }
+
+    .hero h1 {
+        font-size: 2em; /* Further reduce for mobile */
+    }
+
+    .tagline {
+        font-size: 1.1em; /* Further reduce */
+    }
+
+    .services li {
+        font-size: 0.9em;
+        padding: 6px;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 1em;
+        width: 100%; /* Make button full width */
+        max-width: 280px; /* But not overly wide */
+    }
+    
+    .hero-animation-placeholder {
+        width: 200px;
+        height: 200px;
+    }
+
+    .features, .about-us, .contact-us {
+        padding: 30px 15px;
+    }
+
+    .features h2, .about-us h2, .contact-us h2 {
+        font-size: 1.8em; /* Smaller headings for mobile */
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr; /* Stack feature items on mobile */
+        gap: 15px;
+    }
+
+    .feature-item, .contact-form-container, .contact-info-container {
+        padding: 15px;
+    }
+    
+    .feature-item h3 {
+        font-size: 1.3em;
+    }
+
+    .feature-item p {
+        font-size: 0.95em;
+    }
+
+    .about-content {
+        font-size: 1em;
+    }
+    
+    .address {
+        font-size: 1em;
+    }
+
+    .contact-form-container, .contact-info-container {
+        width: 100%; /* Full width for form/info containers */
+    }
+
+    .contact-form label {
+        font-size: 1em;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        padding: 12px; /* Larger touch targets */
+        font-size: 1em;
+    }
+
+    .submit-button {
+        padding: 12px 20px;
+        font-size: 1em;
+        width: 100%; /* Full width submit button */
+    }
+    
+    .whatsapp-link {
+        font-size: 1.1em !important;
+    }
+
+    .map-placeholder {
+        height: 200px;
+    }
+}
+
+/* Footer Section */
+footer {
+    background-color: #343a40; /* Dark background for footer */
+    color: #f8f9fa; /* Light text color */
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content .brand-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    color: #6dd5ed; /* Accent color from hero */
+}
+
+.footer-contact {
+    /* Allow flex items to wrap on smaller screens if needed */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items if they wrap */
+    gap: 10px; /* Gap between items, e.g., address and WhatsApp */
+    margin-bottom: 1.2em; /* Adjusted margin */
+}
+
+.footer-contact p {
+    margin: 0.2em 0; /* Small vertical margin for each contact item */
+    font-size: 0.9em;
+    color: #adb5bd; /* Softer text color */
+}
+
+.footer-contact a {
+    color: #6dd5ed; /* Accent color for links */
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    margin-top: 1.5em; /* Adjusted margin */
+    font-size: 0.9em;
+    color: #adb5bd;
+}
+
+/* Features Section */
+.features {
+    padding: 40px 20px;
+    opacity: 0; /* Initial state for scroll reveal */
+    transform: translateY(30px); /* Initial state for scroll reveal */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.features h2 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.feature-icon-placeholder {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #2193b0; /* Matching hero gradient color */
+}
+
+.feature-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+.feature-item p {
+    font-size: 1em;
+    color: #666;
+}
+
+/* About Us Section */
+.about-us {
+    padding: 40px 20px;
+    background-color: #e9ecef; /* Light grey background */
+    text-align: center;
+    opacity: 0; /* Initial state for scroll reveal */
+    transform: translateY(30px); /* Initial state for scroll reveal */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.about-us h2 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto 2em auto;
+    line-height: 1.6;
+    font-size: 1.1em;
+    color: #444;
+}
+
+.address {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.address p {
+    margin: 0.3em 0;
+}
+
+/* Contact Us Section */
+.contact-us {
+    padding: 40px 20px;
+    background-color: #f8f9fa; /* Slightly different light background */
+    opacity: 0; /* Initial state for scroll reveal */
+    transform: translateY(30px); /* Initial state for scroll reveal */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.contact-us h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.contact-form-container, .contact-info-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 300px; /* Ensures responsiveness on smaller screens */
+}
+
+.contact-form-container h3, .contact-info-container h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 1em;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5em;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 0.5em;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    background-color: #28a745; /* Green color for submit */
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+.contact-info-container p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #444;
+}
+
+.whatsapp-link {
+    margin-top: 1em;
+    font-size: 1.2em !important; /* Ensure it's prominent */
+}
+
+.whatsapp-link a {
+    color: #25D366; /* WhatsApp green */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.whatsapp-link a:hover {
+    text-decoration: underline;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 250px; /* Adjust as needed */
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: #777;
+    margin-top: 1.5em;
+}
